@@ -39,3 +39,11 @@ connection.close((error) => {
 # Utilizando prisma como ORM em Node.js
 
 Prisma é um ORM (Object-Relational Mapping) moderno para Node.js e TypeScript, que oferece uma maneira fácil e segura de interagir com um banco de dados relacional. Ele permite que você escreva consultas de banco de dados em uma sintaxe amigável e tipo seguro, facilitando a manipulação de dados no seu aplicativo Node.js.
+
+## Instalação
+
+Para começar a usar o Prisma, é possível instalá-lo via npm:
+
+~~~
+npm install @prisma/cli @prisma/client
+~~~
