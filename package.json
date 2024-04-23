@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "@prisma/client": "^5.12.1",
     "odbc": "^2.4.8"
+  },
+  "devDependencies": {
+    "prisma": "^5.12.1"
   }
 }
