@@ -47,3 +47,31 @@ Para começar a usar o Prisma, é possível instalá-lo via npm:
 ~~~
 npm install @prisma/cli @prisma/client
 ~~~
+## Configuração
+
+Após instalar o Prisma, é preciso configurar seu arquivo `schema.prisma` para definir o modelo de dados e a conexão com o banco de dados. Aqui está um exemplo de arquivo `schema.prisma`:
+
+~~~
+// schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  name     String
+  email    String   @unique
+  posts    Post[]
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  published Boolean  @default(false)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  Int?
+}
+~~~
