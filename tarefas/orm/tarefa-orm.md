@@ -75,3 +75,35 @@ model Post {
   authorId  Int?
 }
 ~~~
+## Exemplo de Uso
+
+Aqui está um exemplo simples de como usar o Prisma em um aplicativo Node.js:
+
+~~~
+const { PrismaClient } = require('@prisma/client');
+
+const prisma = new PrismaClient();
+
+async function main() {
+  // Criar um novo usuário
+  const newUser = await prisma.user.create({
+    data: {
+      name: 'John Doe',
+      email: 'john@example.com',
+    },
+  });
+  console.log('Novo usuário criado:', newUser);
+
+  // Consultar todos os usuários
+  const allUsers = await prisma.user.findMany();
+  console.log('Todos os usuários:', allUsers);
+}
+
+main()
+  .catch((error) => {
+    console.error('Erro no aplicativo:', error);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
+~~~
